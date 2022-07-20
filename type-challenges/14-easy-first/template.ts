@@ -25,7 +25,7 @@ type t4 = Tail<[]>
 
 // T === []
 // js
-const first = (arr) => {
+const first = (arr: [any, ...any[]]) => {
   // arr 是不是一个空数组 如果是的话 那么返回 never
 
   const [first, ...rest] = arr;
