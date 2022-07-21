@@ -1,5 +1,10 @@
+// 1. 如果T是空数组
 // type First<T extends any[]> = T extends [] ? never : T[0];
+
+// 2. 通过length获取值，判断是不是0
 // type First<T extends any[]> = T["length"] extends 0 ? never : T[0];
+
+// 3.
 // type First<T extends any[]> = T[0] extends T[number] ? T[0] : never
 type First<T extends any[]> = T extends [infer First, ...infer Rest]
   ? First
@@ -26,8 +31,8 @@ type t4 = Tail<[]>
 // T === []
 // js
 const first = (arr: [any, ...any[]]) => {
-  // arr 是不是一个空数组 如果是的话 那么返回 never
-
+  // 1.arr 是不是一个空数组 如果是的话 那么返回 never
+  // 2.length 属性
   const [first, ...rest] = arr;
   return first ? first : "never";
 };
